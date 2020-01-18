@@ -1,0 +1,11 @@
+$width: 100px;
+
+.rubic {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  width: $width * 3;
+  height: $width * 3;
+
+}

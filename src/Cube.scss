@@ -1,0 +1,69 @@
+$width: 100px;
+
+@keyframes rotate {
+  
+  0% {
+    transform: rotate3d(1, 0, 1, 0);
+  }
+  100% {
+    transform: rotate3d(1, 1, 0, 360deg);
+  }
+}
+
+.cube {
+  animation: rotate 2s linear reverse infinite;
+  margin: $width;
+  width: $width;
+  height: $width;
+
+  perspective: 10000px;
+  transform-style: preserve-3d;
+}
+
+.face {
+  position: absolute;
+  width: $width;
+  height: $width;
+  
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 2em;
+  color: #fff;
+  
+  &.face-u {
+    transform: rotateX(90deg) translateZ($width / 2);
+    background-color: red;
+  }
+
+  &.face-d {
+    transform: rotateX(-90deg) translateZ($width / 2);
+    background-color: yellow;
+  }
+
+  &.face-l {
+    transform: rotateY(-90deg) translateZ($width / 2);
+    background-color: red;
+  }
+
+  &.face-r {
+    transform: rotateY(90deg) translateZ($width / 2);
+    background-color: orange;
+  }
+
+  &.face-f {
+    transform: translateZ($width / 2);
+    background-color: green;
+  }
+
+  &.face-b {
+    transform: rotateX(180deg) translateZ($width / 2);
+    background-color: blue;
+  }
+
+  &.face-inside {
+    background-color: red;
+    opacity: 0.2;
+  }
+}
+
