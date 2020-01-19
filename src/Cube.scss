@@ -1,17 +1,36 @@
 $width: 100px;
 
-@keyframes rotate {
-  
-  0% {
-    transform: rotate3d(1, 0, 1, 0);
+@keyframes rotate-x {
+  from {
+    transform: rotateX(0);
   }
-  100% {
-    transform: rotate3d(1, 1, 0, 360deg);
+  to {
+    transform: rotateX(360deg);
   }
 }
 
-.cube {
-  animation: rotate 2s linear reverse infinite;
+.layer-x-2 {
+  animation: rotate-x 3s ease infinite;
+}
+
+@mixin coordinate() {
+  @for $x from 1 through 3 {
+    @for $y from 1 through 3 {
+      @for $z from 1 through 3 {
+        .cube-#{$x}-#{$y}-#{$z} {
+          transform: translate3d(($x - 2) * $width, ($y - 2) * $width, ($z - 2) * $width);
+        }
+      }
+    }
+  }
+}
+
+@include coordinate();
+
+.cube-container {
+  position: absolute;
+  top: 0;
+  left: 0;
   margin: $width;
   width: $width;
   height: $width;
@@ -19,10 +38,16 @@ $width: 100px;
   transform-style: preserve-3d;
 }
 
+.cube {
+  transform-style: preserve-3d;
+}
+
 .face {
   position: absolute;
-  width: $width;
-  height: $width;
+  width: $width - 8;
+  height: $width - 8;
+  border: 4px solid #888;
+  border-radius: 8px;
   
   display: flex;
   justify-content: center;
@@ -61,7 +86,7 @@ $width: 100px;
   }
 
   &.face-inside {
-    background-color: red;
+    background-color: white;
     opacity: 0.2;
   }
 }

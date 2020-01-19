@@ -3,10 +3,16 @@ import Cube from './Cube'
 
 import './Rubic.scss'
 
+import { accord } from './utils'
+
 const Rubic = () => {
   return (
     <div className="rubic">
-      <Cube x={1} y={1} z={1} />
+      {
+        Array.from(accord(), ([ x, y, z ]) =>
+          <Cube key={`coordinate-${x}-${y}-${z}`} x={x} y={y} z={z} />
+        )
+      }
     </div>
   )
 }
