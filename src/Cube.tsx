@@ -3,12 +3,15 @@ import classNames from 'classnames'
 import './Cube.scss'
 
 type Props = {
-  x: number;
-  y: number;
-  z: number;
+  coord: number[];
+  rotate: number[];
 }
 
-const Cube: React.FC<Props> = ({ x, y, z }) => {
+const Cube: React.FC<Props> = ({ coord, rotate }) => {
+  const [x, y, z] = coord
+  // 
+  // cube-x-y-z: 定位各个方块的 3D 位置
+  // face: 方块的六个面，构成一个方块
   return (
     <div className={`cube-container layer-x-${x} layer-y-${y} layer-z-${z}`}>
       <div className={`cube cube-${x}-${y}-${z}`}>

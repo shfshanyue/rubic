@@ -9,10 +9,11 @@ $width: 100px;
   }
 }
 
-.layer-x-2 {
-  animation: rotate-x 3s ease infinite;
-}
+// .layer-x-2 {
+//   animation: rotate-x 3s ease infinite;
+// }
 
+// 平视方块，为 x-y 平面，x轴向右为正，y轴向上为正，z轴朝向自己为正
 @mixin coordinate() {
   @for $x from 1 through 3 {
     @for $y from 1 through 3 {
@@ -54,6 +55,7 @@ $width: 100px;
   align-items: center;
   font-size: 2em;
   color: #fff;
+  opacity: .8;
   
   &.face-u {
     transform: rotateX(90deg) translateZ($width / 2);

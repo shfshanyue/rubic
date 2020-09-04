@@ -19,6 +19,9 @@ $width: 100px;
   width: $width * 3;
   height: $width * 3;
 
+  perspective: 1500px;
+  perspective-origin: 250% -150%;;
   transform-style: preserve-3d;
-  animation: rotate 2s linear reverse infinite;
+  // transform: rotate3d(1, 0, 1, 45deg);
+  // animation: rotate 2s linear reverse infinite;
 }
